@@ -49,10 +49,6 @@ import {FETCH_POSTS, POST_POSTS, DELETE_POST, ADD_FILE, SIGN_IN} from './types';
  }
 
  export function signin(isAuthenticated, history){
-     if(isAuthenticated){
-         console.log('hjfhyfjf')
-        // history.push('/test')
-     }
      console.log('uo', isAuthenticated)
      return{
          type: SIGN_IN,

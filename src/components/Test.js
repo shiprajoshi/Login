@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import {connect} from 'react-redux';
 import { addFile } from './../actions/index';
 import { withRouter } from 'react-router-dom';
-import fakeAuth from '../fakeAuth';
+import AppState from '../fakeAuth';
+
 class Test extends React.Component {
     constructor(props) {
       super(props);
@@ -16,24 +17,24 @@ class Test extends React.Component {
          })
          this.props.fileName(e.target.files[0].name)
         this.props.history.push('/new')
-      //  setFileName(e.target.files[0].name);
-       // console.log('evemt!', e.target.files[0].name)
     }
     handleClickLogout=()=>{
       this.props.history.push('/')
     }
     render() {
-      console.log('--',   this.props
+      console.log('--',   AppState
     )
       return (
         <div>
           {
-            this.props.isAuthenticated ? <div>
+           this.props.isAuthenticated ? 
+            <div>
                <label>Choose file</label>
         <br/>
           <input type="file"onChange={this.handleonChange}/>
           <button onClick={this.handleClickLogout}>Logout!!</button>
-            </div>:<div><p>You are not logged in.</p></div>
+            </div>
+             :<div><p>You are not logged in.</p></div>
           }
        
     </div>

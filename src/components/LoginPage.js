@@ -23,9 +23,9 @@ class LoginPage extends React.Component{
         const {userName, password} = this.props.authData;
         const {userName1, password1} = this.state;
         if(userName=== userName1 && password=== password1){
-            this.props.authenticateUser(true, this.props.history);
+            this.props.authenticateUser(true);
             console.log('this.props', this.props)
-            this.props.history.push('/test',"true")
+            this.props.history.replace('/test')
         }
         else{
           //  this.props.authenticateUser(false)
@@ -37,7 +37,7 @@ class LoginPage extends React.Component{
 
         return(
             <div>
-                <form>
+                <form onSubmit={(e)=>this.handleOnSubmit(e)}>
                     <div>
                       <label>User Name</label>
                       <input type="text" onChange={(e)=>this.onInputChange("userName1", e)}/>
@@ -48,7 +48,7 @@ class LoginPage extends React.Component{
                     </div>
                   
                     <div>
-                      <button onClick={(e)=>this.handleOnSubmit(e)}>Submit</button>
+                      <button type="submit">Submit</button>
                  </div>
                 </form>
                 

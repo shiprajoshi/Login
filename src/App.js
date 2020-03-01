@@ -21,12 +21,11 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header> */}
-        <BrowserRouter history={history
-        }>
+        <BrowserRouter history={history}>
         <Switch>
          
           <Route exact path ="/" history={history}><LoginPage /></Route>
-           <Route exact path="/test"><Test/></Route>
+           <Route path="/test"><Test/></Route>
           <Route exact path="/new"><New/></Route>
 
         </Switch>
