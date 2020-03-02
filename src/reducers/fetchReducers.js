@@ -13,12 +13,12 @@ export default function fetchReducers(state=initialState, action){
     console.log('ciiihs', action)
     switch (action.type) {
         case ADD_FILE:
-            return{
+            return {
                 ...state,
                 fileName: action.fileName
             }
         case SIGN_IN:
-            return{
+            return {
                 ...state,
                 isAuthenticated: action.isAuthenticated
             }

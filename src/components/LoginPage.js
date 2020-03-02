@@ -18,26 +18,28 @@ class LoginPage extends React.Component{
                 [type]: e.target.value
             })
     }
-    handleOnSubmit=(e)=>{
+    handleOnSubmit = (e) => {
         e.preventDefault();
         const {userName, password} = this.props.authData;
         const {userName1, password1} = this.state;
-        if(userName=== userName1 && password=== password1){
+
+        console.log(this.state, this.props)
+
+        if(userName === userName1 && password === password1){
             this.props.authenticateUser(true);
             console.log('this.props', this.props)
-            this.props.history.replace('/test')
+            this.props.history.push('/test')
         }
         else{
           //  this.props.authenticateUser(false)
             alert('Login Failed!!')
         }
     }
+
     render(){
-
-
         return(
             <div>
-                <form onSubmit={(e)=>this.handleOnSubmit(e)}>
+                <form onSubmit={this.handleOnSubmit}>
                     <div>
                       <label>User Name</label>
                       <input type="text" onChange={(e)=>this.onInputChange("userName1", e)}/>
@@ -57,16 +59,17 @@ class LoginPage extends React.Component{
     }
 }
 
-const mapStateToProps=(state)=>{
+const mapStateToProps=(state, { history })=>{
     return{
-        authData : state.fetchReducers.authenticationData
+        authData : state.fetchReducers.authenticationData,
+        history
     }
 
 }
 
 const mapDispatchToProps=(dispatch)=>{
     return{
-        authenticateUser: (flag, history)=> dispatch(signin(flag, history)),
+        authenticateUser: (flag, history)=> dispatch(signin(flag)),
 
     }
 }

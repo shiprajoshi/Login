@@ -22,8 +22,6 @@ class Test extends React.Component {
       this.props.history.push('/')
     }
     render() {
-      console.log('--',   AppState
-    )
       return (
         <div>
           {
@@ -42,37 +40,13 @@ class Test extends React.Component {
     }
   }
 
-
-// function Test(){
-
-//     const[fileName, setFileName]= useState('');
-
-//     const handleonChange=(e)=>{
-//         setFileName(e.target.files[0].name);
-//        // console.log('evemt!', e.target.files[0].name)
-//     }
-
-//     return(
-
-// <div>
-//     <label>Choose file</label>
-//     <br/>
-//    <input type="file"onChange={handleonChange}/>
-// </div>
-
-// );
-// }
-
 const mapStateToProps=(state)=>{
-  console.log('state', state)
   return{
     isAuthenticated: state.fetchReducers.isAuthenticated
   }
 }
 
 const mapDispatchToProps=(dispatch)=>{
-   // console.log('---', fileName)
-   console.log('hey dispatch', dispatch)
 return{
     fileName: (fn)=>dispatch(addFile(fn))
 }
